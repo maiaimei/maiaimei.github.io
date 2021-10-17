@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Zookeeper快速入门 | 初冬十月の笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="好记性不如烂笔头，说不定哪天用上呢">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.486d4e19.css" as="style"><link rel="preload" href="/assets/js/app.4f24e28d.js" as="script"><link rel="preload" href="/assets/js/3.7ff0d87e.js" as="script"><link rel="preload" href="/assets/js/1.30dae6d4.js" as="script"><link rel="preload" href="/assets/js/12.05beed14.js" as="script"><link rel="prefetch" href="/assets/js/10.d8046722.js"><link rel="prefetch" href="/assets/js/11.ea4c10da.js"><link rel="prefetch" href="/assets/js/13.d177a2e0.js"><link rel="prefetch" href="/assets/js/14.f170fe46.js"><link rel="prefetch" href="/assets/js/15.939ad860.js"><link rel="prefetch" href="/assets/js/16.b959f9c4.js"><link rel="prefetch" href="/assets/js/17.9b66296c.js"><link rel="prefetch" href="/assets/js/18.b21bcbc6.js"><link rel="prefetch" href="/assets/js/19.f3c04065.js"><link rel="prefetch" href="/assets/js/20.02c0abc8.js"><link rel="prefetch" href="/assets/js/21.1892b5b2.js"><link rel="prefetch" href="/assets/js/22.11c92520.js"><link rel="prefetch" href="/assets/js/23.da5e1883.js"><link rel="prefetch" href="/assets/js/24.800f8f27.js"><link rel="prefetch" href="/assets/js/25.9bf12ef9.js"><link rel="prefetch" href="/assets/js/26.0fca8aa3.js"><link rel="prefetch" href="/assets/js/27.66463136.js"><link rel="prefetch" href="/assets/js/28.89d82f7e.js"><link rel="prefetch" href="/assets/js/29.36b33de3.js"><link rel="prefetch" href="/assets/js/30.a21d5266.js"><link rel="prefetch" href="/assets/js/31.a097d1e0.js"><link rel="prefetch" href="/assets/js/32.7df846a1.js"><link rel="prefetch" href="/assets/js/33.107d95c1.js"><link rel="prefetch" href="/assets/js/34.62cbbcff.js"><link rel="prefetch" href="/assets/js/4.573a9246.js"><link rel="prefetch" href="/assets/js/5.4157d960.js"><link rel="prefetch" href="/assets/js/6.99dedef9.js"><link rel="prefetch" href="/assets/js/7.aec55ca0.js"><link rel="prefetch" href="/assets/js/8.579e9a90.js"><link rel="prefetch" href="/assets/js/9.6ab998d9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.486d4e19.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>初冬十月の笔记</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>好记性不如烂笔头，说不定哪天用上呢</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>maiaimei</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="初冬十月の笔记" class="logo"> <span class="site-name">初冬十月の笔记</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/数据库/" class="nav-link"><i class="undefined"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/categories/DevOps/" class="nav-link"><i class="undefined"></i>
+  DevOps
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaSE/" class="nav-link"><i class="undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-item"><!----> <a href="/categories/中间件/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="undefined"></i>
+  前端
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    maiaimei
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>24</h3> <h6 data-v-828910c6>文章</h6></div> <div data-v-828910c6><h3 data-v-828910c6>16</h3> <h6 data-v-828910c6>标签</h6></div></div> <ul class="social-links" data-v-828910c6><li class="social-item" data-v-828910c6><i class="iconfont reco-github" style="color:#f8b26a;" data-v-828910c6></i></li><li class="social-item" data-v-828910c6><i class="iconfont reco-mayun" style="color:#67cc86;" data-v-828910c6></i></li></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/数据库/" class="nav-link"><i class="undefined"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/categories/DevOps/" class="nav-link"><i class="undefined"></i>
+  DevOps
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JavaSE/" class="nav-link"><i class="undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-item"><!----> <a href="/categories/中间件/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="undefined"></i>
+  前端
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>全部分类</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>数据库</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>DevOps</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/articles/frondend/" class="sidebar-heading clickable"><span>前端</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>JavaSE</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>中间件</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/articles/middleware/nginx.html" class="sidebar-link">Nginx配置详解</a></li><li><a href="/articles/middleware/rabbitmq.html" class="sidebar-link">RabbitMQ快速入门</a></li><li><a href="/articles/middleware/redis_01.html" class="sidebar-link">Redis快速入门一</a></li><li><a href="/articles/middleware/redis_02.html" class="sidebar-link">Redis快速入门二</a></li><li><a href="/articles/middleware/zookeeper.html" aria-current="page" class="active sidebar-link">Zookeeper快速入门</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>其他</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>Zookeeper快速入门</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>maiaimei</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">Zookeeper快速入门</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>maiaimei</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>2021/3/15</span></i> <!----> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>zookeeper</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="zookeeper-简介"><a href="#zookeeper-简介" class="header-anchor">#</a> zookeeper 简介</h2> <p><strong>zookeeper</strong>，基于<strong>观察者模式</strong>设计的<strong>分布式协调框架</strong>，负责存储和管理大家关心的数据，核心是<strong>文件系统+通知机制</strong>。</p> <p>zookeeper有几个重要的概念：</p> <p><strong>数据结构</strong>：文件系统的数据结构，每个节点称为一个ZNode，每个ZNode通过其路径进行唯一标识，默认能够存储1M数据。</p> <img src="/assets/img/20210324135135.596fb983.png"> <p><strong>节点类型</strong>：持久节点、临时节点、顺序节点。</p> <p><strong>工作状态</strong>：</p> <ul><li>LOOKING：竞选状态。寻找Leader中</li> <li>FOLLOWING：跟从状态。当前服务器角色是Follower</li> <li>LEADING：领导状态。当前服务器角色是Leader</li> <li>OBSERVING：观察状态。当前服务器角色是Observer</li></ul> <p><strong>选举机制</strong>：全新集群选举和非全新集群选举</p> <p>全新集群选举，是指服务器集群首次启动时的选举，服务器能否成为Leader跟myid的数值有关，遵循<strong>过半机制</strong>。</p> <p>非全新集群选举，是指服务器集群在运行期间，如果Leader宕机了，Follower重新选举Leader。依次比较逻辑时钟（选举次数）、数据ID（反应保存数据的新旧程度）、服务器ID（myid）。</p> <p><strong>写入数据</strong>：同样遵循“<strong>过半机制</strong>”。任意一台服务器收到客户端写请求，都会将写请求转发给Leader，由Leader发起写提议，接着Leader和Follower们进行写操作，Follower写完后将结果返回Leader，如果超过一半机器写成功，则Leader认为写成功，并且将结果知会转发请求的源机器，源机器再返回客户端。</p> <p><strong>监听原理</strong>：主线程（Main）创建ZK客户端，这时会创建两个线程，一个线程负责网络连接通信（connet），两个线程负责监听（listener）。通过connet将注册的监听事件发给ZK，ZK监听到数据或路径有变化时通知listener，listener调用process方法。</p> <h2 id="zookeeper-安装部署"><a href="#zookeeper-安装部署" class="header-anchor">#</a> zookeeper 安装部署</h2> <p>zookeeper安装部署比较简单。将压缩包解压，然后修改下配置文件即可，配置文件需要将 <code>conf/zoo_sample.cfg</code>复制并重命名为 <code>conf/zoo.cfg</code> 。</p> <p>安装部署有三种方式：本地模式（单机）、伪分布式模式（单机不同端口）、分布式模式。</p> <blockquote><p><strong>本地模式安装部署</strong></p></blockquote> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 解压安装包</span>
+<span class="token function">tar</span> -zxf apache-zookeeper-3.6.2-bin.tar.gz
+<span class="token comment"># 进入解压目录</span>
+<span class="token builtin class-name">cd</span> apache-zookeeper-3.6.2-bin
+
+<span class="token comment"># 创建数据目录</span>
+<span class="token function">mkdir</span> data
+
+<span class="token comment"># 进入配置目录</span>
+<span class="token builtin class-name">cd</span> conf
+<span class="token comment"># 复制配置文件</span>
+<span class="token function">cp</span> zoo_sample.cfg zoo.cfg
+
+<span class="token comment"># 修改配置文件</span>
+<span class="token function">vi</span> zoo.cfg
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>zoo.cfg</p> <div class="language-properties line-numbers-mode"><pre class="language-properties"><code><span class="token comment"># The number of milliseconds of each tick</span>
+<span class="token comment"># 通信心跳数，单位毫秒。用于心跳机制，服务器之间或服务器与客户端之间维持心跳的时间间隔</span>
+<span class="token attr-name">tickTime</span><span class="token punctuation">=</span><span class="token attr-value">2000</span>
+
+<span class="token comment"># The number of ticks that the initial </span>
+<span class="token comment"># synchronization phase can take</span>
+<span class="token comment"># 集群中LF初始连接时的通信时限 = tickTime * initLimit</span>
+<span class="token attr-name">initLimit</span><span class="token punctuation">=</span><span class="token attr-value">10</span>
+
+<span class="token comment"># The number of ticks that can pass between </span>
+<span class="token comment"># sending a request and getting an acknowledgement</span>
+<span class="token comment"># 集群中LF最大同步通信时限 = tickTime * syncLimit</span>
+<span class="token attr-name">syncLimit</span><span class="token punctuation">=</span><span class="token attr-value">5</span>
+
+<span class="token comment"># the directory where the snapshot is stored.</span>
+<span class="token comment"># do not use /tmp for storage, /tmp here is just </span>
+<span class="token comment"># example sakes.</span>
+<span class="token comment"># 数据快照存储目录</span>
+<span class="token attr-name">dataDir</span><span class="token punctuation">=</span><span class="token attr-value">/opt/zookeeper/apache-zookeeper-3.6.2-bin/data</span>
+
+<span class="token comment"># the port at which the clients will connect</span>
+<span class="token comment"># 客户端连接端口</span>
+<span class="token attr-name">clientPort</span><span class="token punctuation">=</span><span class="token attr-value">2181</span>
+
+<span class="token comment"># the maximum number of client connections.</span>
+<span class="token comment"># increase this if you need to handle more clients</span>
+<span class="token comment">#maxClientCnxns=60</span>
+
+<span class="token comment">#</span>
+<span class="token comment"># Be sure to read the maintenance section of the </span>
+<span class="token comment"># administrator guide before turning on autopurge.</span>
+<span class="token comment">#</span>
+<span class="token comment"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</span>
+<span class="token comment">#</span>
+<span class="token comment"># The number of snapshots to retain in dataDir</span>
+<span class="token comment">#autopurge.snapRetainCount=3</span>
+
+<span class="token comment"># Purge task interval in hours</span>
+<span class="token comment"># Set to &quot;0&quot; to disable auto purge feature</span>
+<span class="token comment">#autopurge.purgeInterval=1</span>
+
+<span class="token comment">## Metrics Providers</span>
+<span class="token comment">#</span>
+<span class="token comment"># https://prometheus.io Metrics Exporter</span>
+<span class="token comment">#metricsProvider.className=org.apache.zookeeper.metrics.prometheus.PrometheusMetricsProvider</span>
+<span class="token comment">#metricsProvider.httpPort=7000</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><blockquote><p><strong>分布式模式安装部署</strong>，集群模式服务器数量一般是奇数！</p></blockquote> <p>在 <code>dataDir=/opt/zookeeper/apache-zookeeper-3.6.2-bin/data</code>目录下新建文件 <code>myid</code>，并写入一个数字。该数字用于<strong>选举机制</strong>，一般来说，数字越大的，成为Leader的概率越高。</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token builtin class-name">cd</span> /opt/zookeeper/apache-zookeeper-3.6.2-bin/data
+<span class="token function">touch</span> myid
+<span class="token function">vi</span> myid
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>修改 <code>zoo.cfg</code> 增加如下内容：</p> <div class="language-properties line-numbers-mode"><pre class="language-properties"><code><span class="token comment"># 集群配置，格式：server.A=B:C:D</span>
+<span class="token comment"># A表示myid里面的数字</span>
+<span class="token comment"># B表示服务器ip</span>
+<span class="token comment"># C表示LF交换信息的端口号</span>
+<span class="token comment"># D表示L宕机了，F们需要重新选举时通信的端口号</span>
+<span class="token attr-name">server.1</span><span class="token punctuation">=</span><span class="token attr-value">192.168.66.133:2888:3888</span>
+<span class="token attr-name">server.2</span><span class="token punctuation">=</span><span class="token attr-value">192.168.66.134:2888:3888</span>
+<span class="token attr-name">server.3</span><span class="token punctuation">=</span><span class="token attr-value">192.168.66.135:2888:3888</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>建立主机与IP之间的映射关系</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">vim</span> /etc/hosts
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 192.168.66.134
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6 192.168.66.134
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><blockquote><p>配置集群时，记得建立主机与IP之间的映射关系，并关闭防火墙或者开放对应端口号！！！</p></blockquote> <img src="/assets/img/20210324161309.7d47562d.png"> <img src="/assets/img/20210324161327.68585584.png"> <h2 id="zookeeper-基本操作"><a href="#zookeeper-基本操作" class="header-anchor">#</a> zookeeper 基本操作</h2> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token builtin class-name">cd</span> bin
+
+<span class="token comment"># 查看状态</span>
+./zkServer.sh status
+
+<span class="token comment"># 启动服务</span>
+./zkServer.sh start
+
+<span class="token comment"># 重启服务</span>
+./zkServer.sh restart
+
+<span class="token comment"># 停止服务</span>
+./zkServer.sh stop
+
+<span class="token comment"># 连接客户端</span>
+./zkCli.sh
+./zkCli.sh -server ip:port
+
+<span class="token comment"># 退出客户端</span>
+quit
+
+<span class="token comment"># 创建节点</span>
+create <span class="token punctuation">[</span>-s<span class="token punctuation">]</span> <span class="token punctuation">[</span>-e<span class="token punctuation">]</span> <span class="token punctuation">[</span>-c<span class="token punctuation">]</span> <span class="token punctuation">[</span>-t ttl<span class="token punctuation">]</span> path <span class="token punctuation">[</span>data<span class="token punctuation">]</span> <span class="token punctuation">[</span>acl<span class="token punctuation">]</span>
+
+<span class="token comment"># 修改节点</span>
+<span class="token builtin class-name">set</span> <span class="token punctuation">[</span>-s<span class="token punctuation">]</span> <span class="token punctuation">[</span>-v version<span class="token punctuation">]</span> path data
+
+<span class="token comment"># 删除节点</span>
+delete <span class="token punctuation">[</span>-v version<span class="token punctuation">]</span> path
+deleteall path <span class="token punctuation">[</span>-b batch size<span class="token punctuation">]</span>
+
+<span class="token comment"># 获取节点</span>
+get <span class="token punctuation">[</span>-s<span class="token punctuation">]</span> <span class="token punctuation">[</span>-w<span class="token punctuation">]</span> path
+
+<span class="token comment"># 列出节点</span>
+<span class="token function">ls</span> <span class="token punctuation">[</span>-s<span class="token punctuation">]</span> <span class="token punctuation">[</span>-w<span class="token punctuation">]</span> <span class="token punctuation">[</span>-R<span class="token punctuation">]</span> path
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><h2 id="参考资料"><a href="#参考资料" class="header-anchor">#</a> 参考资料</h2> <p><a href="https://zookeeper.apache.org/" target="_blank" rel="noopener noreferrer">zookeeper官网<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://www.w3cschool.cn/zookeeper/" target="_blank" rel="noopener noreferrer">w3cschool - Zookeeper 教程<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://www.bilibili.com/video/BV1PW411r7iP" target="_blank" rel="noopener noreferrer">尚硅谷Zookeeper教程(zookeeper框架精讲)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="http://localhost:8888/articles/middleware/%E5%B0%9A%E7%A1%85%E8%B0%B7%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B9%8BZookeeper.pdf" target="_blank" rel="noopener noreferrer">尚硅谷大数据之Zookeeper.pdf<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/articles/middleware/redis_02.html" class="prev">
+            Redis快速入门二
+          </a></span> <span class="next"><a href="/articles/other/cache.html">
+            缓存穿透、缓存击穿、缓存雪崩区别和解决方案
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/articles/middleware/zookeeper.html#zookeeper-简介" class="sidebar-link reco-side-zookeeper-简介" data-v-70334359>zookeeper 简介</a></li><li class="level-2" data-v-70334359><a href="/articles/middleware/zookeeper.html#zookeeper-安装部署" class="sidebar-link reco-side-zookeeper-安装部署" data-v-70334359>zookeeper 安装部署</a></li><li class="level-2" data-v-70334359><a href="/articles/middleware/zookeeper.html#zookeeper-基本操作" class="sidebar-link reco-side-zookeeper-基本操作" data-v-70334359>zookeeper 基本操作</a></li><li class="level-2" data-v-70334359><a href="/articles/middleware/zookeeper.html#参考资料" class="sidebar-link reco-side-参考资料" data-v-70334359>参考资料</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.4f24e28d.js" defer></script><script src="/assets/js/3.7ff0d87e.js" defer></script><script src="/assets/js/1.30dae6d4.js" defer></script><script src="/assets/js/12.05beed14.js" defer></script>
+  </body>
+</html>
