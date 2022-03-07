@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>初冬十月の笔记</title>
+    <script type="text/javascript" src="./jquery.min.js"></script>
+  </head>
+  <body>
+      <ul id="e-book">
+          <li>
+              <a href="javascript:void(0)" data-file="大话数据结构.pdf">大话数据结构</a>
+              <a href="javascript:void(0)" data-file="Jenkins持续集成从入门到精通.pdf">Jenkins持续集成从入门到精通</a>
+          </li>
+      </ul>
+      <script type="text/javascript">
+          $("#e-book a").on("click",function(){
+            window.open('pdfjs/web/viewer.html?file=/ebook/docs/' + $(this).attr("data-file"));
+          });
+      </script>
+  </body>
+  </html>
