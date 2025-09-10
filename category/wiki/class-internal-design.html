@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>如何清晰描述类和方法之间的关系 | 初冬十月的笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <script>
+		       var _hmt = _hmt || [];
+		       (function() {
+		         var hm = document.createElement("script");
+		         hm.src = "https://hm.baidu.com/hm.js?ea067d5ff639c55d3843c3f224a1c187";
+		         var s = document.getElementsByTagName("script")[0]; 
+		         s.parentNode.insertBefore(hm, s);
+		       })();
+		         </script>
+    <meta name="description" content="初冬十月的笔记努力加载中~~">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="初冬十月,maiaimei,maiamy,maiam">
+    
+    <link rel="preload" href="/assets/css/0.styles.2038d0e5.css" as="style"><link rel="preload" href="/assets/js/app.79864a5e.js" as="script"><link rel="preload" href="/assets/js/4.d7bde999.js" as="script"><link rel="preload" href="/assets/js/1.f767751f.js" as="script"><link rel="preload" href="/assets/js/97.877ef32e.js" as="script"><link rel="prefetch" href="/assets/js/10.1c951315.js"><link rel="prefetch" href="/assets/js/100.aa19594b.js"><link rel="prefetch" href="/assets/js/101.4084a9ac.js"><link rel="prefetch" href="/assets/js/102.39d6aa83.js"><link rel="prefetch" href="/assets/js/103.6532d31e.js"><link rel="prefetch" href="/assets/js/104.ee03e59d.js"><link rel="prefetch" href="/assets/js/11.874bdae6.js"><link rel="prefetch" href="/assets/js/12.51770130.js"><link rel="prefetch" href="/assets/js/13.dfbc43ab.js"><link rel="prefetch" href="/assets/js/14.d1ae537d.js"><link rel="prefetch" href="/assets/js/15.5ce51a44.js"><link rel="prefetch" href="/assets/js/16.203a8ace.js"><link rel="prefetch" href="/assets/js/17.47cb811b.js"><link rel="prefetch" href="/assets/js/18.f5da1616.js"><link rel="prefetch" href="/assets/js/19.609f3d24.js"><link rel="prefetch" href="/assets/js/20.5716dabf.js"><link rel="prefetch" href="/assets/js/21.e54cad28.js"><link rel="prefetch" href="/assets/js/22.63b5d764.js"><link rel="prefetch" href="/assets/js/23.fe1499a7.js"><link rel="prefetch" href="/assets/js/24.7fae8e79.js"><link rel="prefetch" href="/assets/js/25.86a00378.js"><link rel="prefetch" href="/assets/js/26.ef240476.js"><link rel="prefetch" href="/assets/js/27.55d29ca9.js"><link rel="prefetch" href="/assets/js/28.7f21f5b5.js"><link rel="prefetch" href="/assets/js/29.ce76a8aa.js"><link rel="prefetch" href="/assets/js/3.a7c7f794.js"><link rel="prefetch" href="/assets/js/30.74ac6f35.js"><link rel="prefetch" href="/assets/js/31.0227d24b.js"><link rel="prefetch" href="/assets/js/32.1d8195ee.js"><link rel="prefetch" href="/assets/js/33.8528adfc.js"><link rel="prefetch" href="/assets/js/34.58a7ca38.js"><link rel="prefetch" href="/assets/js/35.ac60d51b.js"><link rel="prefetch" href="/assets/js/36.95285ff1.js"><link rel="prefetch" href="/assets/js/37.e7fed991.js"><link rel="prefetch" href="/assets/js/38.2d57ab04.js"><link rel="prefetch" href="/assets/js/39.e3fc8f71.js"><link rel="prefetch" href="/assets/js/40.4efe5c46.js"><link rel="prefetch" href="/assets/js/41.c0f6ed1a.js"><link rel="prefetch" href="/assets/js/42.c4db30b3.js"><link rel="prefetch" href="/assets/js/43.23e5c9a4.js"><link rel="prefetch" href="/assets/js/44.8463a0ca.js"><link rel="prefetch" href="/assets/js/45.d6769321.js"><link rel="prefetch" href="/assets/js/46.d579e4aa.js"><link rel="prefetch" href="/assets/js/47.470b29cd.js"><link rel="prefetch" href="/assets/js/48.f5a25246.js"><link rel="prefetch" href="/assets/js/49.1bc4cc2f.js"><link rel="prefetch" href="/assets/js/5.66a086d9.js"><link rel="prefetch" href="/assets/js/50.aff0964a.js"><link rel="prefetch" href="/assets/js/51.b392307a.js"><link rel="prefetch" href="/assets/js/52.588d688a.js"><link rel="prefetch" href="/assets/js/53.fe087ec9.js"><link rel="prefetch" href="/assets/js/54.a688dc57.js"><link rel="prefetch" href="/assets/js/55.83699d33.js"><link rel="prefetch" href="/assets/js/56.4c1dde41.js"><link rel="prefetch" href="/assets/js/57.a1c963a2.js"><link rel="prefetch" href="/assets/js/58.511a3cee.js"><link rel="prefetch" href="/assets/js/59.839e8b5f.js"><link rel="prefetch" href="/assets/js/6.c7a11ae1.js"><link rel="prefetch" href="/assets/js/60.0c06b1bf.js"><link rel="prefetch" href="/assets/js/61.41ecb333.js"><link rel="prefetch" href="/assets/js/62.c9754057.js"><link rel="prefetch" href="/assets/js/63.1b9f909a.js"><link rel="prefetch" href="/assets/js/64.4420ed6a.js"><link rel="prefetch" href="/assets/js/65.55aefe3b.js"><link rel="prefetch" href="/assets/js/66.fe2e68ab.js"><link rel="prefetch" href="/assets/js/67.0d38ff65.js"><link rel="prefetch" href="/assets/js/68.ade5ab02.js"><link rel="prefetch" href="/assets/js/69.e356a911.js"><link rel="prefetch" href="/assets/js/7.9028652f.js"><link rel="prefetch" href="/assets/js/70.c9cb81a5.js"><link rel="prefetch" href="/assets/js/71.e8f2a340.js"><link rel="prefetch" href="/assets/js/72.015508f8.js"><link rel="prefetch" href="/assets/js/73.1ca74722.js"><link rel="prefetch" href="/assets/js/74.14c58ee7.js"><link rel="prefetch" href="/assets/js/75.70b7376b.js"><link rel="prefetch" href="/assets/js/76.0b8fb37a.js"><link rel="prefetch" href="/assets/js/77.393e06cc.js"><link rel="prefetch" href="/assets/js/78.989a7209.js"><link rel="prefetch" href="/assets/js/79.824882ce.js"><link rel="prefetch" href="/assets/js/8.e7c3eaa3.js"><link rel="prefetch" href="/assets/js/80.3ec015de.js"><link rel="prefetch" href="/assets/js/81.0b7387d5.js"><link rel="prefetch" href="/assets/js/82.d12c054a.js"><link rel="prefetch" href="/assets/js/83.13791b13.js"><link rel="prefetch" href="/assets/js/84.1514318f.js"><link rel="prefetch" href="/assets/js/85.ea422f83.js"><link rel="prefetch" href="/assets/js/86.b0c1ce9e.js"><link rel="prefetch" href="/assets/js/87.4c7167c6.js"><link rel="prefetch" href="/assets/js/88.805fc299.js"><link rel="prefetch" href="/assets/js/89.ecbda678.js"><link rel="prefetch" href="/assets/js/9.dcee647e.js"><link rel="prefetch" href="/assets/js/90.b8ffd6f9.js"><link rel="prefetch" href="/assets/js/91.0945144f.js"><link rel="prefetch" href="/assets/js/92.5809cb10.js"><link rel="prefetch" href="/assets/js/93.2f38cc03.js"><link rel="prefetch" href="/assets/js/94.850b43be.js"><link rel="prefetch" href="/assets/js/95.3ba825a1.js"><link rel="prefetch" href="/assets/js/96.5948dd27.js"><link rel="prefetch" href="/assets/js/98.dc1ce2cf.js"><link rel="prefetch" href="/assets/js/99.b1f3f6b0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2038d0e5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>初冬十月的笔记</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>初冬十月的笔记努力加载中~~</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>maiaimei</span>
+            
+          <span data-v-4e82dffc>2021 - </span>
+          2025
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="初冬十月的笔记" class="logo"> <span class="site-name">初冬十月的笔记</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/数据库/" class="nav-link"><i class="undefined"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据结构/" class="nav-link"><i class="undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/categories/DevOps/" class="nav-link"><i class="undefined"></i>
+  DevOps
+</a></li><li class="dropdown-item"><!----> <a href="/categories/编程语言/" class="nav-link"><i class="undefined"></i>
+  编程语言
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端开发/" class="nav-link"><i class="undefined"></i>
+  前端开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/操作系统/" class="nav-link"><i class="undefined"></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/categories/中间件/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/categories/测试框架/" class="nav-link"><i class="undefined"></i>
+  测试框架
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring/" class="nav-link"><i class="undefined"></i>
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Tool/" class="nav-link"><i class="undefined"></i>
+  Tool
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计算机术语/" class="nav-link"><i class="undefined"></i>
+  计算机术语
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mail server/" class="nav-link"><i class="undefined"></i>
+  Mail server
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    maiaimei
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>85</h3> <h6 data-v-828910c6>文章</h6></div> <div data-v-828910c6><h3 data-v-828910c6>51</h3> <h6 data-v-828910c6>标签</h6></div></div> <ul class="social-links" data-v-828910c6><li class="social-item" data-v-828910c6><i class="iconfont reco-github" style="color:#fb9b5f;" data-v-828910c6></i></li><li class="social-item" data-v-828910c6><i class="iconfont reco-mayun" style="color:#e15b64;" data-v-828910c6></i></li></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/数据库/" class="nav-link"><i class="undefined"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据结构/" class="nav-link"><i class="undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/categories/DevOps/" class="nav-link"><i class="undefined"></i>
+  DevOps
+</a></li><li class="dropdown-item"><!----> <a href="/categories/编程语言/" class="nav-link"><i class="undefined"></i>
+  编程语言
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端开发/" class="nav-link"><i class="undefined"></i>
+  前端开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/操作系统/" class="nav-link"><i class="undefined"></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/categories/中间件/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/categories/测试框架/" class="nav-link"><i class="undefined"></i>
+  测试框架
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring/" class="nav-link"><i class="undefined"></i>
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Tool/" class="nav-link"><i class="undefined"></i>
+  Tool
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计算机术语/" class="nav-link"><i class="undefined"></i>
+  计算机术语
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mail server/" class="nav-link"><i class="undefined"></i>
+  Mail server
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>我的笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/java/CompletableFuture" class="sidebar-heading clickable"><span>Java</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/python" class="sidebar-heading clickable"><span>Python</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/spring/@ConfigurationProperties" class="sidebar-heading clickable"><span>Spring</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/linux/command" class="sidebar-heading clickable"><span>Linux</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/devops/aliyun_docker_nginx" class="sidebar-heading clickable"><span>DevOps</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/oracle/get-started" class="sidebar-heading clickable"><span>Oracle</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/tool/PlantUML" class="sidebar-heading clickable"><span>Tool</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/middleware" class="sidebar-heading clickable"><span>中间件</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/database" class="sidebar-heading clickable"><span>数据库</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/data-structure" class="sidebar-heading clickable"><span>数据结构</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/design-pattern" class="sidebar-heading clickable"><span>设计模式</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/testing-frameworks" class="sidebar-heading clickable"><span>测试框架</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/front-end-development" class="sidebar-heading clickable"><span>前端开发</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/category/wiki" class="sidebar-heading clickable router-link-active open"><span>知识中心</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/category/wiki/cache.html" class="sidebar-link">缓存穿透、缓存击穿、缓存雪崩区别和解决方案</a></li><li><a href="/category/wiki/class-internal-design.html" aria-current="page" class="active sidebar-link">如何清晰描述类和方法之间的关系</a></li><li><a href="/category/wiki/conversion.html" class="sidebar-link">进制转换</a></li><li><a href="/category/wiki/cors.html" class="sidebar-link">Cross-Origin Resource Sharing</a></li><li><a href="/category/wiki/fqdn.html" class="sidebar-link">FQDN</a></li><li><a href="/category/wiki/isolation.html" class="sidebar-link">脏读、不可重复读、幻读和数据库隔离级别</a></li><li><a href="/category/wiki/mail-server-test.html" class="sidebar-link">/category/wiki/mail-server-test.html</a></li><li><a href="/category/wiki/mail-server.html" class="sidebar-link">邮件服务器工作原理</a></li><li><a href="/category/wiki/optimistic-pessimistic-locking.html" class="sidebar-link">乐观锁与悲观锁</a></li><li><a href="/category/wiki/query_fqdn_ips.html" class="sidebar-link">查询一个FQDN的所有IP地址</a></li><li><a href="/category/wiki/restful-api-best-practices.html" class="sidebar-link">RESTful API Best Practices</a></li><li><a href="/category/wiki/smtp-pop3-imap.html" class="sidebar-link">SMTP/POP3/IMAP</a></li></ul></section></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>如何清晰描述类和方法之间的关系</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>maiaimei</span>
+            
+          <span data-v-4e82dffc>2021 - </span>
+          2025
+        </a></span></div></div> <div data-v-1156296a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">如何清晰描述类和方法之间的关系</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>maiaimei</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>2025/9/10</span></i> <!----> <!----></div></div> <div class="theme-reco-content content__default"><p>类之间的关系描述方式：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>1. 继承关系 (is-a)
+- &quot;Class B extends Class A&quot; - 可以描述为:
+  &quot;B 是 A 的子类，继承了 A 的所有公共属性和方法&quot;
+  &quot;B 是一种特殊的 A，扩展了额外的功能 X、Y、Z&quot;
+
+2. 组合关系 (has-a)
+- &quot;Class A contains Class B&quot; - 可以描述为:
+  &quot;A 包含一个 B 类型的成员变量&quot;
+  &quot;A 依赖 B 来实现其核心功能&quot;
+
+3. 接口实现关系
+- &quot;Class A implements Interface B&quot; - 可以描述为:
+  &quot;A 实现了接口 B 定义的所有方法&quot;
+  &quot;A 通过实现接口 B 提供了 X、Y、Z 等功能&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>方法之间的关系描述方式：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>1. 调用关系
+- 可以使用缩进层次描述:
+  methodA()
+    -&gt; calls methodB()
+       -&gt; calls methodC()
+
+- 或者用文字描述:
+  &quot;methodA 调用 methodB 处理数据，methodB 进一步调用 methodC 完成具体计算&quot;
+
+2. 依赖关系
+- &quot;方法 A 依赖方法 B 的返回结果进行后续处理&quot;
+- &quot;方法 A 和方法 B 共同操作同一个对象的状态&quot;
+
+3. 功能流程
+- &quot;用户请求首先经过 validateInput() 验证&quot;
+- &quot;验证通过后，数据由 processData() 处理&quot;
+- &quot;最后通过 saveResult() 保存结果&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>使用层次结构描述复杂关系：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>ServiceClass
+├── publicMethod()
+│   ├── privateHelperMethod1()
+│   └── privateHelperMethod2()
+│       └── utilityMethod()
+└── anotherPublicMethod()
+    └── privateHelperMethod3()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>实际示例：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 可以这样描述以下类的关系：
+public class OrderService {
+    private OrderRepository orderRepo;
+    private PaymentService paymentService;
+    
+    public void processOrder(Order order) {
+        validateOrder(order);
+        saveOrder(order);
+        processPayment(order);
+    }
+}
+
+/*
+描述：
+1. OrderService 类负责订单处理流程
+2. 该类依赖两个核心组件：
+   - OrderRepository: 负责订单数据持久化
+   - PaymentService: 负责支付处理
+3. processOrder 方法工作流程：
+   - 首先调用 validateOrder 验证订单有效性
+   - 然后通过 saveOrder 保存订单信息
+   - 最后调用 processPayment 处理支付
+*/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>最佳实践：</p> <ul><li>使用清晰的层次结构展示类和方法的从属关系</li> <li>说明类或方法的主要职责</li> <li>描述重要的依赖关系和交互流程</li> <li>突出关键的业务逻辑和处理流程</li> <li>必要时可以配合简单的流程图或类图</li> <li>使用具体的例子来说明抽象的关系</li></ul> <p>生成类和方法的树形层次结构，可以使用以下特殊字符组合：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>基本符号：
+├── 表示非最后一个子项
+└── 表示最后一个子项
+│   表示垂直连接线
+    用空格表示缩进
+
+完整字符集：
+├ (树枝)
+─ (水平线)
+│ (垂直线)
+└ (最后一个项目的转角)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>实际示例:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>1. 首先写根节点：
+ServiceClass
+
+2. 添加第一层方法：
+ServiceClass
+├── publicMethod()
+└── anotherPublicMethod()
+
+3. 添加第二层方法：
+ServiceClass
+├── publicMethod()
+│   ├── privateHelperMethod1()
+│   └── privateHelperMethod2()
+└── anotherPublicMethod()
+    └── privateHelperMethod3()
+
+4. 添加第三层方法：
+ServiceClass
+├── publicMethod()
+│   ├── privateHelperMethod1()
+│   └── privateHelperMethod2()
+│       └── utilityMethod()
+└── anotherPublicMethod()
+    └── privateHelperMethod3()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>关键点：</p> <ol><li><p>每个层级缩进使用4个空格</p></li> <li><p>使用 <code>├──</code> 表示非最后一个项目</p></li> <li><p>使用 <code>└──</code> 表示最后一个项目</p></li> <li><p>使用 <code>│</code> 表示垂直连接线，用于连接父节点和子节点</p></li> <li><p>确保垂直线对齐</p></li></ol></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/category/wiki/cache.html" class="prev">
+            缓存穿透、缓存击穿、缓存雪崩区别和解决方案
+          </a></span> <span class="next"><a href="/category/wiki/conversion.html">
+            进制转换
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-70334359></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.79864a5e.js" defer></script><script src="/assets/js/4.d7bde999.js" defer></script><script src="/assets/js/1.f767751f.js" defer></script><script src="/assets/js/97.877ef32e.js" defer></script>
+  </body>
+</html>
